@@ -1,9 +1,11 @@
+import Gallery from './components/Gallery/Gallery';
+
 import './App.css';
 
 function App() {
   return (
     <>
-      <h1>Gallery</h1>
+      <Gallery />
     </>
   );
 }

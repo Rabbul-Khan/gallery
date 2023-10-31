@@ -1,0 +1,15 @@
+.gallery__wrapper {
+  max-width: 1000px;
+  min-width: min-content;
+  min-height: min-content;
+  margin: 50px auto;
+  background-color: #feffff;
+  border-radius: 0.5rem;
+}
+
+header {
+  color: #17252a;
+  padding: 1rem;
+  border-bottom: 1px solid #17252a;
+  font-size: 0.75rem;
+}
