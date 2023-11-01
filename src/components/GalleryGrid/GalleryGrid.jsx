@@ -1,3 +1,5 @@
+import { useRef, useState } from 'react';
+
 import './GalleryGrid.css';
 
 import Img1 from '/image-1.webp';
@@ -13,7 +15,7 @@ import Img10 from '/image-10.jpeg';
 import Img11 from '/image-11.jpeg';
 
 const GalleryGrid = () => {
-  const images = [
+  const [images, setImages] = useState([
     Img1,
     Img2,
     Img3,
@@ -25,20 +27,55 @@ const GalleryGrid = () => {
     Img9,
     Img10,
     Img11,
-  ];
-  if (images.length === 0) {
-    return <div className="gallery__no-image">No Images</div>;
-  }
+  ]);
+
+  const dragItem = useRef(null);
+  const dragOverItem = useRef(null);
+  const sequence = useRef([...images]);
+
+  const handleDragStart = (index) => {
+    dragItem.current = index;
+  };
+
+  const handleDragEnter = (index) => {
+    dragOverItem.current = index;
+
+    let _images = [...sequence.current];
+
+    const draggedElement = _images.splice(dragItem.current, 1)[0];
+    _images.splice(dragOverItem.current, 0, draggedElement);
+    setImages(_images);
+  };
+
+  const handleDragLeave = () => {
+    dragOverItem.current = null;
+  };
+
+  const handleDragEnd = () => {
+    dragItem.current = null;
+    dragOverItem.current = null;
+    sequence.current = [...images];
+  };
+
+  // if (images.length === 0) {
+  //   return <div className="gallery__no-image">No Images</div>;
+  // }
 
   return (
     <div className="gallery__grid">
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
           <img
             src={image}
             alt=""
             key={image}
             className="gallery__grid__image"
+            draggable
+            onDragStart={() => handleDragStart(index)}
+            onDragEnter={() => handleDragEnter(index)}
+            onDragLeave={handleDragLeave}
+            onDragEnd={handleDragEnd}
+            onDragOver={(e) => e.preventDefault()}
           />
         );
       })}
