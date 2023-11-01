@@ -1,0 +1,54 @@
+.gallery-grid__image {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #17252a;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+}
+
+.gallery-grid__image:hover {
+  filter: brightness(0.7);
+  transform: scale(1.1);
+  border: 2px solid #17252a;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.gallery-grid__image:active {
+  transform: scale(0.95);
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10; /* To place the checkbox above the image */
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type='checkbox']:hover,
+.gallery-grid__image:hover + input[type='checkbox'],
+input[type='checkbox']:checked {
+  width: 30px;
+  height: 30px;
+  opacity: 1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+@media (max-width: 700px) {
+  input[type='checkbox']:hover,
+  .gallery-grid__image:hover + input[type='checkbox'],
+  input[type='checkbox']:checked {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 700px) {
+  input[type='checkbox']:hover,
+  .gallery-grid__image:hover + input[type='checkbox'],
+  input[type='checkbox']:checked {
+    width: 15px;
+    height: 15px;
+  }
+}

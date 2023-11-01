@@ -3,7 +3,7 @@ import GalleryGrid from '../GalleryGrid/GalleryGrid';
 import './Gallery.css';
 const Gallery = () => {
   return (
-    <div className="gallery__wrapper">
+    <div className="gallery-wrapper">
       <header>
         <h1>Gallery</h1>
       </header>

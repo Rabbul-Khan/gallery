@@ -1,15 +1,35 @@
-.gallery__wrapper {
+.gallery-wrapper {
   max-width: 1000px;
   min-width: min-content;
-  min-height: min-content;
-  margin: 50px auto;
+  margin: 4rem 1rem;
   background-color: #feffff;
   border-radius: 0.5rem;
 }
 
 header {
+  font-size: 1.5rem;
   color: #17252a;
-  padding: 1rem;
+  padding: 1.5rem;
   border-bottom: 1px solid #17252a;
-  font-size: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 700px) {
+  .gallery-wrapper {
+    margin: 2rem 1rem;
+  }
+  header {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery-wrapper {
+    margin: 1rem 1rem;
+  }
+  header {
+    font-size: 0.95rem;
+  }
 }
