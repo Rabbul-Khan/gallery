@@ -13,6 +13,7 @@ header {
   border-bottom: 1px solid #17252a;
   text-align: center;
   letter-spacing: 0.1rem;
+  user-select: none;
 }
 
 @media (max-width: 700px) {
